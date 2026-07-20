@@ -1,5 +1,5 @@
 import React from 'react';
-import { History, BookOpen, GraduationCap, Sun, Moon } from 'lucide-react';
+import { History, BookOpen, Sun, Moon } from 'lucide-react';
 import { SciVerifyHeroLogo } from './SciVerifyHeroLogo';
 
 interface HeaderProps {
@@ -46,11 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleHistory, historyCount, t
             <BookOpen className="h-3.5 w-3.5 text-cobalt" />
             SciFact.Corpus
           </a>
-          
-          <div className="hidden md:flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-slate-500">
-            <GraduationCap className="h-3.5 w-3.5" />
-            NLP_24-25
-          </div>
+
 
           {/* Theme Toggle Button */}
           <button
