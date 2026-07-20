@@ -5,9 +5,10 @@ import { Search, FlaskConical, CornerDownLeft, X, ShieldAlert, BarChart2 } from 
 interface ClaimInputProps {
   onVerify: (claim: string) => void;
   onFocusChange?: (focused: boolean) => void;
+  currentUser?: { name: string; email: string; institution: string } | null;
 }
 
-export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange }) => {
+export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange, currentUser }) => {
   const [claim, setClaim] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -86,7 +87,7 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/5 pb-4 mb-4">
           <div>
             <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink">
-              SciVerify Analysis Console
+              {currentUser ? `Dr. ${currentUser.name}'s Workspace` : 'SciVerify Analysis Console'}
             </h2>
             <p className="text-[10px] text-slate-500 font-mono uppercase tracking-widest mt-1">
               Natural Language Processing Evidence Retrieval & Verification
