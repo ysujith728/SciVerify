@@ -202,3 +202,70 @@
   content: '|';
   @apply text-cobalt font-extrabold animate-pulse ml-0.5;
 }
+
+/* Premium camera drift (cinematic scale and translation) */
+@keyframes slowCameraDrift {
+  0% {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.035) translate3d(-15px, -8px, 0);
+  }
+  100% {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slowCameraDriftForeground {
+  0% {
+    transform: scale(1.025) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate3d(-25px, -12px, 0);
+  }
+  100% {
+    transform: scale(1.025) translate3d(0, 0, 0);
+  }
+}
+
+/* Microscope diagonal light sweep animation - 13s cycle */
+@keyframes microscopeSweep {
+  0% {
+    transform: translate3d(150px, 150px, 0) rotate(35deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translate3d(150px, 150px, 0) rotate(35deg);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.16;
+  }
+  90% {
+    transform: translate3d(-200px, -200px, 0) rotate(35deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-200px, -200px, 0) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(
+    circle at center,
+    rgba(3, 7, 18, 0.1) 0%,
+    rgba(3, 7, 18, 0.45) 45%,
+    rgba(3, 7, 18, 0.85) 100%
+  );
+}
+
+/* Light mode overlay adjustment for illustration blending and readability */
+.light .bg-radial-vignette {
+  background: radial-gradient(
+    circle at center,
+    rgba(248, 250, 252, 0.08) 0%,
+    rgba(248, 250, 252, 0.45) 45%,
+    rgba(248, 250, 252, 0.9) 100%
+  );
+}
