@@ -343,6 +343,7 @@ function App() {
             historyCount={historyList.length} 
             theme={theme}
             onToggleTheme={toggleTheme}
+            onLogoClick={handleReset}
           />
         </motion.div>
       )}

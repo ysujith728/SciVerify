@@ -84,14 +84,15 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
     <g opacity={opacity}>
       <path
         d="M -5,-7 L 1,-7 L 5,-3 L 5,7 L -5,7 Z"
-        stroke="rgba(255, 255, 255, 0.85)"
+        stroke="currentColor"
+        strokeOpacity="0.85"
         strokeWidth="1.2"
         fill="rgba(15, 23, 42, 0.9)"
         strokeLinejoin="round"
       />
-      <path d="M 1,-7 L 1,-3 L 5,-3" stroke="rgba(255, 255, 255, 0.85)" strokeWidth="1.2" fill="none" />
-      <line x1="-2.5" y1="-1" x2="2.5" y2="-1" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1" />
-      <line x1="-2.5" y1="2" x2="2.5" y2="2" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1" />
+      <path d="M 1,-7 L 1,-3 L 5,-3" stroke="currentColor" strokeOpacity="0.85" strokeWidth="1.2" fill="none" />
+      <line x1="-2.5" y1="-1" x2="2.5" y2="-1" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1" />
+      <line x1="-2.5" y1="2" x2="2.5" y2="2" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1" />
     </g>
   );
 
@@ -107,28 +108,28 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
 
   const renderVectorNode = (opacity: number) => (
     <g opacity={opacity}>
-      <circle cx="0" cy="0" r="2.5" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1.2" fill="none" />
-      <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255, 255, 255, 0.5)" strokeWidth="0.8" />
-      <line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(255, 255, 255, 0.5)" strokeWidth="0.8" />
+      <circle cx="0" cy="0" r="2.5" stroke="currentColor" strokeOpacity="0.7" strokeWidth="1.2" fill="none" />
+      <line x1="-5" y1="0" x2="5" y2="0" stroke="currentColor" strokeOpacity="0.5" strokeWidth="0.8" />
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="currentColor" strokeOpacity="0.5" strokeWidth="0.8" />
     </g>
   );
 
   const renderCitationNode = (opacity: number) => (
     <g opacity={opacity}>
       <circle cx="0" cy="0" r="1.8" fill="#FBBF24" />
-      <path d="M -4,-3 L -5.5,-3 L -5.5,3 L -4,3" stroke="rgba(255, 255, 255, 0.6)" strokeWidth="1" fill="none" />
-      <path d="M 4,-3 L 5.5,-3 L 5.5,3 L 4,3" stroke="rgba(255, 255, 255, 0.6)" strokeWidth="1" fill="none" />
+      <path d="M -4,-3 L -5.5,-3 L -5.5,3 L -4,3" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1" fill="none" />
+      <path d="M 4,-3 L 5.5,-3 L 5.5,3 L 4,3" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1" fill="none" />
     </g>
   );
 
   const renderConnectionNode = (opacity: number) => (
     <g opacity={opacity}>
-      <line x1="-3" y1="2" x2="3" y2="3" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="0.8" />
-      <line x1="3" y1="3" x2="0" y2="-4" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="0.8" />
-      <line x1="0" y1="-4" x2="-3" y2="2" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="0.8" />
-      <circle cx="-3" cy="2" r="1.5" fill="#fff" />
-      <circle cx="3" cy="3" r="1.5" fill="#fff" />
-      <circle cx="0" cy="-4" r="1.5" fill="#fff" />
+      <line x1="-3" y1="2" x2="3" y2="3" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
+      <line x1="3" y1="3" x2="0" y2="-4" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
+      <line x1="0" y1="-4" x2="-3" y2="2" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
+      <circle cx="-3" cy="2" r="1.5" fill="currentColor" />
+      <circle cx="3" cy="3" r="1.5" fill="currentColor" />
+      <circle cx="0" cy="-4" r="1.5" fill="currentColor" />
     </g>
   );
 
@@ -202,7 +203,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
         </motion.div>
         <motion.span
           layoutId={`${layoutId}-wordmark`}
-          className="font-bold text-white font-sans text-xl tracking-tight"
+          className="font-bold text-ink font-sans text-xl tracking-tight"
         >
           SciVerify
         </motion.span>
@@ -233,7 +234,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
         {/* SVG Canvas for Orbit Paths, Pulse Waves, and Nodes */}
         <svg
           viewBox="0 0 400 400"
-          className="absolute inset-0 w-full h-full pointer-events-none fill-none"
+          className="absolute inset-0 w-full h-full pointer-events-none fill-none text-slate-500 dark:text-slate-400"
         >
           {/* Tilted Ellipse Orbit Track (fades in at 700ms) */}
           <motion.ellipse
@@ -242,7 +243,8 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
             rx="190"
             ry="45"
             transform="rotate(10, 200, 200)"
-            stroke="rgba(255, 255, 255, 0.05)"
+            stroke="currentColor"
+            strokeOpacity="0.08"
             strokeWidth="1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -302,7 +304,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
           {/* Wordmark (Fades in at 100ms) */}
           <motion.span
             layoutId={`${layoutId}-wordmark`}
-            className="font-bold text-white font-sans text-5xl md:text-6xl tracking-tight z-10"
+            className="font-bold text-ink font-sans text-5xl md:text-6xl tracking-tight z-10"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}
@@ -324,7 +326,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
         {/* SVG Canvas for Front Nodes (rendered on top of wordmark) */}
         <svg
           viewBox="0 0 400 400"
-          className="absolute inset-0 w-full h-full pointer-events-none fill-none z-20"
+          className="absolute inset-0 w-full h-full pointer-events-none fill-none z-20 text-slate-500 dark:text-slate-400"
         >
           {/* Render Front Nodes */}
           <motion.g

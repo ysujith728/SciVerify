@@ -7,9 +7,10 @@ interface HeaderProps {
   historyCount: number;
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
+  onLogoClick?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onToggleHistory, historyCount, theme, onToggleTheme }) => {
+export const Header: React.FC<HeaderProps> = ({ onToggleHistory, historyCount, theme, onToggleTheme, onLogoClick }) => {
   const isDarkMode = theme === 'dark';
 
   return (
@@ -17,19 +18,22 @@ export const Header: React.FC<HeaderProps> = ({ onToggleHistory, historyCount, t
       <div className="mx-auto flex max-w-7xl h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Logo and Brand: Sharp & Clinical Monogram */}
-        <div className="flex items-center gap-3">
-          <div className="flex items-center text-cobalt select-none">
+        <button 
+          onClick={onLogoClick}
+          className="flex items-center gap-3 text-left focus:outline-none cursor-pointer group select-none"
+        >
+          <div className="flex items-center text-cobalt select-none transition-transform group-hover:scale-[1.02]">
             <SciVerifyHeroLogo variant="navbar" layoutId="main-logo-container" className="text-cobalt" />
           </div>
           <div className="border-l border-slate-200 dark:border-white/10 pl-3">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-300 tracking-wider">
+              <span className="inline-flex items-center border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-300 tracking-wider group-hover:border-cobalt/35 transition-colors">
                 SYS_VER_2.4
               </span>
             </div>
-            <p className="hidden sm:block text-[9px] text-slate-500 font-mono uppercase tracking-widest">Verify Smarter. Trust Science.</p>
+            <p className="hidden sm:block text-[9px] text-slate-500 font-mono uppercase tracking-widest group-hover:text-slate-400 dark:group-hover:text-slate-300 transition-colors">Verify Smarter. Trust Science.</p>
           </div>
-        </div>
+        </button>
 
         {/* Action Controls: Boxy & Minimal */}
         <div className="flex items-center gap-4 sm:gap-6">
