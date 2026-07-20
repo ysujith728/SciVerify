@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased selection:bg-blue-500/25 selection:text-blue-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-ink font-semibold;
+  }
+}
+
+/* Technical instrument grid backdrop - extremely subtle */
+.scientific-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* 3D grid container with perspective depth */
+.grid-perspective-container {
+  perspective: 800px;
+  perspective-origin: 50% 35%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scientific-grid-3d {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
+  transform: rotateX(60deg);
+  transform-origin: 50% 50%;
+}
+
+/* Glassmorphic instruments cards */
+.instrument-card {
+  @apply bg-console/60 border border-white/5 shadow-xl backdrop-blur-md rounded-xl transition-all duration-300;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.instrument-card-hover:hover {
+  @apply border-white/10 bg-console/80 -translate-y-0.5;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
+/* Monospace telemetry glow */
+.telemetry-glow {
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.success-glow {
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+/* Precision indicator animations */
+@keyframes dial-needle-wobble {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(0.8deg); }
+  60% { transform: rotate(-0.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.dial-calibrating {
+  animation: dial-needle-wobble 2.5s infinite ease-in-out;
+}
+
+/* Cathode Grid sweep reveal */
+@keyframes grid-reveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.scientific-grid-animate {
+  animation: grid-reveal 0.9s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Horizontal scanline laser beam */
+@keyframes laser-sweep {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.scanline-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.4), transparent);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+  animation: laser-sweep 0.9s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Scrollbar for professional lab terminal look */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-paper;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 hover:bg-white/20 rounded-full transition-colors;
+}
+
+/* Text cursor blinking for terminal effect */
+.terminal-cursor::after {
+  content: '|';
+  @apply text-cobalt font-extrabold animate-pulse ml-0.5;
+}
