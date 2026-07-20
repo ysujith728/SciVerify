@@ -13,8 +13,8 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
   className = '',
 }) => {
   const [angle, setAngle] = useState(0);
-  const requestRef = useRef<number>();
-  const lastTimeRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
+  const lastTimeRef = useRef<number | undefined>(undefined);
   const startTimeRef = useRef<number>(Date.now());
 
   // Orbit animation loop at 60 FPS (extremely slow and elegant)

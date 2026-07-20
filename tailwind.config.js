@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,28 +8,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#030712',   // Premium dark background (Apple/Vercel standard)
-        console: '#0B0F19', // Console element background (slighter lighter navy)
-        ink: '#F9FAFB',     // Crisp, readable off-white text
-        cobalt: '#3B82F6',  // Core instrument accent blue
+        paper: 'rgb(var(--color-paper-rgb))',   // Premium background
+        console: 'rgb(var(--color-console-rgb))', // Console background
+        ink: 'rgb(var(--color-ink-rgb))',     // Core text color
+        cobalt: 'rgb(var(--color-cobalt-rgb))',  // Accent blue
         verdict: {
           support: {
-            bg: 'rgba(16, 185, 129, 0.05)',
-            border: 'rgba(16, 185, 129, 0.25)',
-            text: '#34D399',
-            highlight: 'rgba(52, 211, 153, 0.15)',
+            bg: 'var(--color-verdict-support-bg)',
+            border: 'var(--color-verdict-support-border)',
+            text: 'var(--color-verdict-support-text)',
+            highlight: 'var(--color-verdict-support-highlight)',
           },
           contradict: {
-            bg: 'rgba(239, 68, 68, 0.05)',
-            border: 'rgba(239, 68, 68, 0.25)',
-            text: '#F87171',
-            highlight: 'rgba(248, 113, 113, 0.15)',
+            bg: 'var(--color-verdict-contradict-bg)',
+            border: 'var(--color-verdict-contradict-border)',
+            text: 'var(--color-verdict-contradict-text)',
+            highlight: 'var(--color-verdict-contradict-highlight)',
           },
           neutral: {
-            bg: 'rgba(245, 158, 11, 0.05)',
-            border: 'rgba(245, 158, 11, 0.25)',
-            text: '#FBBF24',
-            highlight: 'rgba(251, 191, 36, 0.15)',
+            bg: 'var(--color-verdict-neutral-bg)',
+            border: 'var(--color-verdict-neutral-border)',
+            text: 'var(--color-verdict-neutral-text)',
+            highlight: 'var(--color-verdict-neutral-highlight)',
           }
         }
       },

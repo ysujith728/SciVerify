@@ -153,6 +153,11 @@ const BackgroundCanvas: React.FC<{ bootPhase: BootPhase; speedFactor?: number }>
 };
 
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('sciverify_theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+    return 'dark'; // signature dark mode by default
+  });
   const [bootPhase, setBootPhase] = useState<BootPhase>(() => {
     const booted = sessionStorage.getItem('sciverify_booted');
     return booted ? 'READY' : 'BOOT_CHAOS';
@@ -166,6 +171,22 @@ function App() {
   const [historyList, setHistoryList] = useState<VerificationResult[]>([]);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isInputActive, setIsInputActive] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('sciverify_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   const shouldReduceMotion = useReducedMotion();
 
@@ -320,6 +341,8 @@ function App() {
           <Header 
             onToggleHistory={() => setIsHistoryOpen(prev => !prev)} 
             historyCount={historyList.length} 
+            theme={theme}
+            onToggleTheme={toggleTheme}
           />
         </motion.div>
       )}
@@ -368,7 +391,7 @@ function App() {
 
       {/* Technical instrument footer */}
       <motion.footer 
-        className={`w-full border-t border-white/5 bg-[#05070c] py-8 mt-24 text-[10px] font-mono tracking-wider text-slate-500 relative z-10 transition-opacity duration-500 ${
+        className={`w-full border-t border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-[#05070c] py-8 mt-24 text-[10px] font-mono tracking-wider text-slate-500 relative z-10 transition-opacity duration-500 ${
           isBooting 
             ? 'opacity-0 pointer-events-none' 
             : isInputActive 

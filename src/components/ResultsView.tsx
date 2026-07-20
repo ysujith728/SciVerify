@@ -135,30 +135,30 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
     switch (v) {
       case 'SUPPORT':
         return {
-          bg: 'bg-emerald-500/5 border-emerald-500/20',
-          text: 'text-emerald-400',
-          badge: 'border-emerald-500 text-emerald-400 bg-emerald-500/5',
+          bg: 'bg-emerald-500/[0.03] dark:bg-emerald-500/5 border-emerald-500/30 dark:border-emerald-500/20',
+          text: 'text-emerald-700 dark:text-emerald-400',
+          badge: 'border-emerald-500/50 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 bg-emerald-500/[0.03] dark:bg-emerald-500/5',
           highlightColor: 'rgba(52, 211, 153, 0.15)',
-          highlightBg: 'border-b border-emerald-500 text-emerald-100',
+          highlightBg: 'border-b border-emerald-500 text-slate-800 dark:text-emerald-100',
           accentHex: '#10B981'
         };
       case 'CONTRADICT':
         return {
-          bg: 'bg-rose-500/5 border-rose-500/20',
-          text: 'text-rose-400',
-          badge: 'border-rose-500 text-rose-400 bg-rose-500/5',
+          bg: 'bg-rose-500/[0.03] dark:bg-rose-500/5 border-rose-500/30 dark:border-rose-500/20',
+          text: 'text-rose-700 dark:text-rose-400',
+          badge: 'border-rose-500/50 dark:border-rose-500 text-rose-700 dark:text-rose-400 bg-rose-500/[0.03] dark:bg-rose-500/5',
           highlightColor: 'rgba(248, 113, 113, 0.15)',
-          highlightBg: 'border-b border-rose-500 text-rose-100',
+          highlightBg: 'border-b border-rose-500 text-slate-800 dark:text-rose-100',
           accentHex: '#EF4444'
         };
       case 'NOT ENOUGH INFO':
       default:
         return {
-          bg: 'bg-amber-500/5 border-amber-500/20',
-          text: 'text-amber-400',
-          badge: 'border-amber-500 text-amber-400 bg-amber-500/5',
+          bg: 'bg-amber-500/[0.03] dark:bg-amber-500/5 border-amber-500/30 dark:border-amber-500/20',
+          text: 'text-amber-700 dark:text-amber-400',
+          badge: 'border-amber-500/50 dark:border-amber-500 text-amber-700 dark:text-amber-400 bg-amber-500/[0.03] dark:bg-amber-500/5',
           highlightColor: 'rgba(251, 191, 36, 0.15)',
-          highlightBg: 'border-b border-amber-500 text-amber-100',
+          highlightBg: 'border-b border-amber-500 text-slate-800 dark:text-amber-100',
           accentHex: '#F59E0B'
         };
     }
@@ -224,18 +224,18 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
       {/* Return Navigation */}
       <button
         onClick={onReset}
-        className="group flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate-500 hover:text-ink transition-colors mb-6 cursor-pointer relative z-10"
+        className="group flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate-500 hover:text-slate-900 dark:hover:text-ink transition-colors mb-6 cursor-pointer relative z-10"
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
         <span>{"[<- Register New Inquiry]"}</span>
       </button>
 
       {/* Inquiry Record Title */}
-      <div className="instrument-card p-6 mb-8 border-white/5 relative z-10">
+      <div className="instrument-card p-6 mb-8 border-slate-200 dark:border-white/5 relative z-10">
         <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-2">
           VERIFICATION_INQUIRY_RECORD
         </span>
-        <h1 className="font-serif text-2xl md:text-3xl italic font-semibold text-slate-100 leading-snug">
+        <h1 className="font-serif text-2xl md:text-3xl italic font-semibold text-slate-850 dark:text-slate-100 leading-snug">
           "{result.claim}"
         </h1>
       </div>
@@ -247,7 +247,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
         <div className="lg:col-span-5 space-y-6">
           
           {/* Dial Gauge Card */}
-          <div className="instrument-card p-6 border-white/5 flex flex-col items-center relative overflow-hidden">
+          <div className="instrument-card p-6 border-slate-200 dark:border-white/5 flex flex-col items-center relative overflow-hidden">
             {/* Atmospheric light behind dial */}
             <div 
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full filter blur-[50px] opacity-10 transition-colors duration-500 pointer-events-none"
@@ -259,13 +259,14 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
             </span>
 
             {/* Custom SVG Dial Instrument Gauge */}
-            <div className="relative flex flex-col items-center justify-center w-full max-w-[250px] h-[140px] border border-white/5 bg-white/5 p-4 rounded-xl">
+            <div className="relative flex flex-col items-center justify-center w-full max-w-[250px] h-[140px] border border-slate-200 dark:border-white/5 bg-slate-100/50 dark:bg-white/5 p-4 rounded-xl">
               <svg viewBox="0 0 100 60" className="w-full h-full">
                 {/* Background scale arc */}
                 <path
                   d="M 10 50 A 40 40 0 0 1 90 50"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.05)"
+                  stroke="currentColor"
+                  className="text-slate-200 dark:text-white/5"
                   strokeWidth="5"
                   strokeLinecap="round"
                 />
@@ -295,15 +296,16 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                       y1={y1} 
                       x2={x2} 
                       y2={y2} 
-                      stroke="rgba(255, 255, 255, 0.2)" 
+                      stroke="currentColor" 
+                      className="text-slate-400 dark:text-white/20"
                       strokeWidth={idx % 2 === 0 ? "0.6" : "0.3"} 
                     />
                   );
                 })}
                 
-                <text x="6" y="55" fontSize="4.5" fontFamily="monospace" fill="rgba(255, 255, 255, 0.3)" textAnchor="middle">0%</text>
-                <text x="50" y="7" fontSize="4.5" fontFamily="monospace" fill="rgba(255, 255, 255, 0.3)" textAnchor="middle">50%</text>
-                <text x="94" y="55" fontSize="4.5" fontFamily="monospace" fill="rgba(255, 255, 255, 0.3)" textAnchor="middle">100%</text>
+                <text x="6" y="55" fontSize="4.5" fontFamily="monospace" fill="currentColor" className="text-slate-500 dark:text-slate-400" textAnchor="middle">0%</text>
+                <text x="50" y="7" fontSize="4.5" fontFamily="monospace" fill="currentColor" className="text-slate-500 dark:text-slate-400" textAnchor="middle">50%</text>
+                <text x="94" y="55" fontSize="4.5" fontFamily="monospace" fill="currentColor" className="text-slate-500 dark:text-slate-400" textAnchor="middle">100%</text>
 
                 {/* Instrument Needle - sweeps with mechanical spring inertia */}
                 <motion.line
@@ -311,7 +313,8 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                   y1="50"
                   x2="50"
                   y2="15"
-                  stroke="#F3F4F6"
+                  stroke="currentColor"
+                  className={`text-slate-700 dark:text-slate-100 ${revealStage >= 2 && revealStage < 3 ? "dial-calibrating" : ""}`}
                   strokeWidth="1.6"
                   strokeLinecap="round"
                   style={{ transformOrigin: '50px 50px' }}
@@ -324,14 +327,13 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                     restDelta: 0.1,
                     delay: 0.2 
                   }}
-                  className={revealStage >= 2 && revealStage < 3 ? "dial-calibrating" : ""}
                 />
 
-                <circle cx="50" cy="50" r="3" fill="#3B82F6" stroke="rgba(255, 255, 255, 0.8)" strokeWidth="0.8" />
+                <circle cx="50" cy="50" r="3" fill="#3B82F6" stroke="currentColor" className="text-white dark:text-slate-900" strokeWidth="0.8" />
               </svg>
               
               <div className="mt-2 text-center select-none">
-                <span className="font-mono text-xs font-bold text-slate-300 uppercase tracking-widest telemetry-glow">
+                <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest telemetry-glow">
                   CONFIDENCE: [{countingPercent}.0%]
                 </span>
               </div>
@@ -358,29 +360,29 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
               </AnimatePresence>
             </div>
 
-            <div className="w-full mt-4 border-t border-white/5 pt-4 flex justify-between text-[9px] font-mono text-slate-500">
+            <div className="w-full mt-4 border-t border-slate-200 dark:border-white/5 pt-4 flex justify-between text-[9px] font-mono text-slate-500">
               <span>SYSTEM: STABLE</span>
               <span>CAL_COV_SIM: LOCKED</span>
             </div>
           </div>
 
           {/* Discussion Report Card - Types after Stage 6 */}
-          <div className="instrument-card p-6 border-white/5 bg-console/40">
-            <div className="flex items-center gap-2 border-b border-white/5 pb-3 mb-4">
+          <div className="instrument-card p-6 border-slate-200 dark:border-white/5 bg-console/40">
+            <div className="flex items-center gap-2 border-b border-slate-200 dark:border-white/5 pb-3 mb-4">
               <Sparkles className="h-4 w-4 text-cobalt" />
               <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
                 SECTION_04: INTERPRETATIVE ANALYSIS
               </h4>
             </div>
             
-            <div className="text-xs leading-relaxed text-slate-300 font-sans min-h-[70px]">
+            <div className="text-xs leading-relaxed text-slate-600 dark:text-slate-300 font-sans min-h-[70px]">
               <ScientificTypewriter 
                 text={result.explanation} 
                 active={revealStage >= 6} 
               />
             </div>
             
-            <div className="mt-4 border border-white/5 bg-white/5 p-3 rounded-lg text-[9.5px] font-mono text-slate-400 leading-relaxed">
+            <div className="mt-4 border border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/5 p-3 rounded-lg text-[9.5px] font-mono text-slate-500 dark:text-slate-400 leading-relaxed">
               DOCUMENT EVIDENCE REFERENCE: Verification model synthesized via SPECTER2 semantic search. Key quotes compared directly against logic nodes.
             </div>
           </div>
@@ -390,7 +392,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
         {/* Right Column: Research Papers (7 cols) - Slides up in Stage 4 */}
         <div className="lg:col-span-7 space-y-4">
           
-          <div className="flex items-center justify-between border-b border-white/5 pb-2">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/5 pb-2">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-slate-500" />
               <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
@@ -424,11 +426,11 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                       {/* Left Margin Citation Numbers */}
                       <div className="flex flex-col items-center w-8 shrink-0 font-mono text-[10px] select-none text-slate-500 pt-1">
                         <span className="font-bold">[{index + 1}]</span>
-                        <div className="flex-1 w-0.5 bg-white/5 my-2" />
+                        <div className="flex-1 w-0.5 bg-slate-200 dark:bg-white/5 my-2" />
                       </div>
 
                       {/* Paper Document Container */}
-                      <div className="flex-1 border-b border-white/5 pb-5">
+                      <div className="flex-1 border-b border-slate-200 dark:border-white/5 pb-5">
                         
                         {/* Meta Header */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -443,14 +445,14 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                           
                           <button
                             onClick={() => toggleExpand(card.id)}
-                            className="font-mono text-[9px] text-cobalt hover:text-slate-200 transition-colors cursor-pointer select-none focus:outline-none"
+                            className="font-mono text-[9px] text-cobalt hover:text-slate-800 dark:hover:text-slate-200 transition-colors cursor-pointer select-none focus:outline-none"
                           >
                             {isExpanded ? '[[-] CONCEAL]' : '[[+] EXPLORE]'}
                           </button>
                         </div>
 
                         {/* Title */}
-                        <h4 className="font-serif text-sm font-semibold text-slate-100 leading-snug mb-1.5 group-hover:text-white transition-colors">
+                        <h4 className="font-serif text-sm font-semibold text-slate-800 dark:text-slate-100 leading-snug mb-1.5 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                           {card.title}
                         </h4>
                         
@@ -469,7 +471,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                               className="overflow-hidden"
                             >
-                              <div className="mt-3 border-l border-white/10 pl-4 py-1 space-y-3">
+                              <div className="mt-3 border-l border-slate-200 dark:border-white/10 pl-4 py-1 space-y-3">
                                 <div>
                                   <span className="font-mono text-[8px] font-bold text-slate-500 block uppercase tracking-wider mb-2 select-none">
                                     Abstract Text Annotation
@@ -477,13 +479,13 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
                                   {renderAbstract(card, index)}
                                 </div>
 
-                                <div className="flex items-center justify-between border-t border-white/5 pt-3 text-[10px] font-mono">
+                                <div className="flex items-center justify-between border-t border-slate-200 dark:border-white/5 pt-3 text-[10px] font-mono">
                                   <span className="text-slate-500">CIT_ID: {card.id}</span>
                                   <a
                                     href={card.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 font-bold text-cobalt hover:text-slate-200 transition-colors"
+                                    className="inline-flex items-center gap-1 font-bold text-cobalt hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                                   >
                                     <span>[VIEW SOURCE DOI]</span>
                                     <ExternalLink className="h-3 w-3" />
@@ -506,10 +508,10 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ result, onReset }) => 
       </div>
 
       {/* Reset Area */}
-      <div className="mt-12 flex justify-center border-t border-white/5 pt-8 relative z-10">
+      <div className="mt-12 flex justify-center border-t border-slate-200 dark:border-white/5 pt-8 relative z-10">
         <button
           onClick={onReset}
-          className="px-6 py-2.5 font-mono text-xs uppercase tracking-widest border border-white/10 bg-white/5 text-ink hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer select-none rounded-lg focus:outline-none"
+          className="px-6 py-2.5 font-mono text-xs uppercase tracking-widest border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-ink hover:bg-slate-200 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all cursor-pointer select-none rounded-lg focus:outline-none"
         >
           [Register New Assertion]
         </button>

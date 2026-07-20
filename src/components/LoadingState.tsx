@@ -336,21 +336,21 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       {/* Restated assertion display */}
-      <div className="instrument-card p-5 mb-6 border-white/5 bg-console/40 relative">
+      <div className="instrument-card p-5 mb-6 border-slate-200 dark:border-white/5 bg-console/40 relative">
         <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block mb-2">
           Hypothesis Registered for Verification
         </span>
-        <p className="font-serif text-sm font-semibold italic text-slate-200">
+        <p className="font-serif text-sm font-semibold italic text-slate-700 dark:text-slate-200">
           "{claim}"
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left Side: Pipeline Steps (7 cols) */}
-        <div className="lg:col-span-7 instrument-card p-6 border-white/5 bg-console/40 flex flex-col justify-between">
+        <div className="lg:col-span-7 instrument-card p-6 border-slate-200 dark:border-white/5 bg-console/40 flex flex-col justify-between">
           <div>
             {/* Panel Header */}
-            <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/5 pb-4 mb-6">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -392,7 +392,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
                       </div>
 
                       <span className={`text-xs transition-colors font-medium ${
-                        isActive ? 'text-cobalt font-bold' : 'text-slate-300'
+                        isActive ? 'text-cobalt font-bold' : 'text-slate-600 dark:text-slate-300'
                       }`}>
                         {step.label}
                       </span>
@@ -407,7 +407,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
                       </span>
                       
                       {/* Mini progress line for active step */}
-                      <div className="w-16 h-1 bg-white/5 overflow-hidden rounded">
+                      <div className="w-16 h-1 bg-slate-200 dark:bg-white/5 overflow-hidden rounded">
                         {isActive && !shouldReduceMotion ? (
                           <motion.div
                             className="h-full bg-cobalt"
@@ -426,7 +426,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/5 pt-4 flex items-center gap-2 text-[9px] font-mono text-slate-500">
+          <div className="mt-8 border-t border-slate-200 dark:border-white/5 pt-4 flex items-center gap-2 text-[9px] font-mono text-slate-500">
             <ShieldAlert className="h-3.5 w-3.5 text-amber-500 shrink-0" />
             <span>DO NOT INTERRUPT PIPELINE THREADS • COMPILING VECTOR GRAPH</span>
           </div>
@@ -435,7 +435,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
         {/* Right Side: Virtual Vector Space Canvas + Live Logs (5 cols) */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           {/* Vector Space Visualizer Card */}
-          <div className="instrument-card border-white/5 bg-console/40 h-52 relative overflow-hidden flex flex-col justify-between">
+          <div className="instrument-card border-slate-200 dark:border-white/5 bg-console/40 h-52 relative overflow-hidden flex flex-col justify-between">
             <div className="absolute top-2 left-3 z-10 text-[8px] font-mono text-slate-500 select-none">
               [VECTOR_SPACE_PROJECTION_SPACE]
             </div>
@@ -449,8 +449,8 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ claim, onComplete })
           </div>
 
           {/* Telemetry Logs Card */}
-          <div className="instrument-card border-white/5 bg-[#05070c] p-4 flex-1 flex flex-col justify-between min-h-[140px] shadow-inner">
-            <div className="flex items-center gap-1.5 border-b border-white/5 pb-2 mb-2 text-[8px] text-slate-500 font-bold uppercase tracking-wider">
+          <div className="instrument-card border-slate-200 dark:border-white/5 bg-slate-950 p-4 flex-1 flex flex-col justify-between min-h-[140px] shadow-inner">
+            <div className="flex items-center gap-1.5 border-b border-slate-200 dark:border-white/5 pb-2 mb-2 text-[8px] text-slate-500 font-bold uppercase tracking-wider">
               <Terminal className="h-3 w-3" />
               <span>telemetry stdout console</span>
             </div>

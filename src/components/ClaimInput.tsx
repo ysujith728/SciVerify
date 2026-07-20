@@ -81,9 +81,9 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
     <div className="mx-auto max-w-4xl px-4 py-8">
       
       {/* Instrumentation Console Header */}
-      <div className="instrument-card p-6 mb-8 border-white/5 relative overflow-hidden">
+      <div className="instrument-card p-6 mb-8 border-slate-200 dark:border-white/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full filter blur-3xl pointer-events-none" />
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/5 pb-4 mb-4">
           <div>
             <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink">
               SciVerify Analysis Console
@@ -97,7 +97,7 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
               <span className="h-2 w-2 bg-emerald-500 rounded-full animate-pulse" />
               STATUS: ONLINE
             </span>
-            <span className="border-l border-white/10 pl-4">MODEL: DeBERTa_v3_NLI</span>
+            <span className="border-l border-slate-200 dark:border-white/10 pl-4">MODEL: DeBERTa_v3_NLI</span>
           </div>
         </div>
         <p className="text-xs leading-relaxed text-slate-400 font-sans max-w-2xl">
@@ -109,7 +109,7 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
       <form onSubmit={handleSubmit} className="relative">
         <motion.div 
           className={`instrument-card p-6 border transition-all duration-300 relative ${
-            isFocused ? 'border-cobalt/50 bg-console/80' : 'border-white/5 bg-console/40'
+            isFocused ? 'border-cobalt/50 bg-console/80' : 'border-slate-200 dark:border-white/5 bg-console/40'
           }`}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
@@ -197,7 +197,7 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
           </div>
 
           {/* Metric Status bar */}
-          <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
+          <div className="mt-4 flex items-center justify-between border-t border-slate-200 dark:border-white/5 pt-4">
             
             {/* Ticking monospace layout length counter */}
             <div className="font-mono text-[10px] text-slate-500 select-none flex items-center">
@@ -232,8 +232,8 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
                 claim.trim().length >= 10 && !isAnalyzing
                   ? 'bg-cobalt text-white border-cobalt/60 hover:bg-cobalt/90 shadow-lg shadow-cobalt/10'
                   : isAnalyzing
-                  ? 'bg-slate-800 text-slate-400 border-white/10 cursor-not-allowed shadow-none'
-                  : 'bg-white/5 text-slate-500 border-white/5 cursor-not-allowed shadow-none'
+                  ? 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-white/10 cursor-not-allowed shadow-none'
+                  : 'bg-slate-50 text-slate-400 border-slate-200 dark:bg-white/5 dark:text-slate-500 dark:border-white/5 cursor-not-allowed shadow-none'
               }`}
             >
               {/* Shimmer light sweep */}
@@ -251,7 +251,7 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
                 {isAnalyzing ? 'Analyzing...' : 'Verify Assertion'}
               </span>
               {!isAnalyzing && (
-                <span className="relative z-10 border-l border-white/20 pl-2 text-[9px] text-white/50 font-normal">
+                <span className="relative z-10 border-l border-slate-300 dark:border-white/20 pl-2 text-[9px] text-slate-500 dark:text-white/50 font-normal">
                   <CornerDownLeft className="inline h-2.5 w-2.5 -mt-0.5" /> Ent
                 </span>
               )}
@@ -262,35 +262,35 @@ export const ClaimInput: React.FC<ClaimInputProps> = ({ onVerify, onFocusChange 
 
       {/* Structured Calibration registry table */}
       <div className="mt-12">
-        <div className="flex items-center gap-2 border-b border-white/5 pb-2 mb-4">
+        <div className="flex items-center gap-2 border-b border-slate-200 dark:border-white/5 pb-2 mb-4">
           <BarChart2 className="h-4 w-4 text-slate-500" />
           <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
             Calibration Claims Registry
           </h3>
         </div>
 
-        <div className="overflow-hidden border border-white/5 bg-console/20 backdrop-blur-md rounded-xl shadow-md">
-          <table className="min-w-full divide-y divide-white/5 font-mono text-[11px]">
-            <thead className="bg-white/5">
+        <div className="overflow-hidden border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-console/20 backdrop-blur-md rounded-xl shadow-md">
+          <table className="min-w-full divide-y divide-slate-200 dark:divide-white/5 font-mono text-[11px]">
+            <thead className="bg-slate-100 dark:bg-white/5">
               <tr>
                 <th scope="col" className="py-3.5 pl-4 pr-3 text-left font-bold text-slate-400 uppercase tracking-wider w-24">ID</th>
                 <th scope="col" className="py-3.5 px-3 text-left font-bold text-slate-400 uppercase tracking-wider">Clinical Hypothesis</th>
                 <th scope="col" className="py-3.5 px-3 text-left font-bold text-slate-400 uppercase tracking-wider w-40">Logical Verdict</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5 bg-transparent">
+            <tbody className="divide-y divide-slate-200 dark:divide-white/5 bg-transparent">
               {examples.map((example) => (
                 <tr 
                   key={example.id}
                   onClick={() => {
                     if (!isAnalyzing) setClaim(example.text);
                   }}
-                  className="hover:bg-white/5 transition-colors cursor-pointer group"
+                  className="hover:bg-slate-100 dark:hover:bg-white/5 transition-colors cursor-pointer group"
                 >
                   <td className="whitespace-nowrap py-4 pl-4 pr-3 text-slate-500 font-bold group-hover:text-cobalt transition-colors">
                     [{example.id}]
                   </td>
-                  <td className="px-3 py-4 font-serif text-slate-300 group-hover:text-white transition-colors leading-relaxed">
+                  <td className="px-3 py-4 font-serif text-slate-600 dark:text-slate-300 group-hover:text-slate-950 dark:group-hover:text-white transition-colors leading-relaxed">
                     "{example.text}"
                   </td>
                   <td className="whitespace-nowrap px-3 py-4">

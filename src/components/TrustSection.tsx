@@ -21,7 +21,7 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="mt-16 border-t border-white/5 bg-transparent py-12 px-4 sm:px-6 lg:px-8">
+    <section className="mt-16 border-t border-slate-200 dark:border-white/5 bg-transparent py-12 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <h3 className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500 font-mono">
           Credible NLP Pipeline Infrastructure
@@ -38,25 +38,25 @@ export const TrustSection: React.FC = () => {
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10 text-cobalt mb-4 border border-blue-500/20">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h4 className="text-sm font-semibold text-slate-200">{step.title}</h4>
-                <p className="mt-2 text-xs leading-relaxed text-slate-400">{step.description}</p>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">{step.title}</h4>
+                <p className="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">{step.description}</p>
               </div>
             );
           })}
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-center">
-          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 font-mono">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-650 dark:text-slate-400 font-mono">
             <IconBadge check />
             <span>Evidence-grounded RAG explanations</span>
           </div>
-          <span className="hidden sm:inline text-slate-700">•</span>
-          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 font-mono">
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-650 dark:text-slate-400 font-mono">
             <IconBadge check />
             <span>Peer-reviewed scientific indexing</span>
           </div>
-          <span className="hidden sm:inline text-slate-300/10">•</span>
-          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 font-mono">
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-650 dark:text-slate-400 font-mono">
             <IconBadge check />
             <span>Verifiable source DOI citations</span>
           </div>

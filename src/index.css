@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light Mode variables */
+  --color-paper-rgb: 248 250 252;
+  --color-console-rgb: 255 255 255;
+  --color-ink-rgb: 15 23 42;
+  --color-cobalt-rgb: 37 99 235;
+  
+  --color-verdict-support-bg: rgba(16, 185, 129, 0.05);
+  --color-verdict-support-border: rgba(16, 185, 129, 0.35);
+  --color-verdict-support-text: #059669;
+  --color-verdict-support-highlight: rgba(16, 185, 129, 0.15);
+
+  --color-verdict-contradict-bg: rgba(239, 68, 68, 0.05);
+  --color-verdict-contradict-border: rgba(239, 68, 68, 0.35);
+  --color-verdict-contradict-text: #DC2626;
+  --color-verdict-contradict-highlight: rgba(239, 68, 68, 0.15);
+
+  --color-verdict-neutral-bg: rgba(245, 158, 11, 0.05);
+  --color-verdict-neutral-border: rgba(245, 158, 11, 0.35);
+  --color-verdict-neutral-text: #D97706;
+  --color-verdict-neutral-highlight: rgba(245, 158, 11, 0.15);
+
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-color-hover: rgba(15, 23, 42, 0.15);
+  --grid-color-3d: rgba(15, 23, 42, 0.03);
+  --grid-color-flat: rgba(15, 23, 42, 0.015);
+  --card-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.06);
+  --card-shadow-hover: 0 12px 40px 0 rgba(15, 23, 42, 0.12), 0 0 15px rgba(37, 99, 235, 0.05);
+}
+
+.dark {
+  /* Dark Mode variables */
+  --color-paper-rgb: 3 7 18;
+  --color-console-rgb: 11 15 25;
+  --color-ink-rgb: 249 250 251;
+  --color-cobalt-rgb: 59 130 246;
+
+  --color-verdict-support-bg: rgba(16, 185, 129, 0.05);
+  --color-verdict-support-border: rgba(16, 185, 129, 0.25);
+  --color-verdict-support-text: #34D399;
+  --color-verdict-support-highlight: rgba(52, 211, 153, 0.15);
+
+  --color-verdict-contradict-bg: rgba(239, 68, 68, 0.05);
+  --color-verdict-contradict-border: rgba(239, 68, 68, 0.25);
+  --color-verdict-contradict-text: #F87171;
+  --color-verdict-contradict-highlight: rgba(248, 113, 113, 0.15);
+
+  --color-verdict-neutral-bg: rgba(245, 158, 11, 0.05);
+  --color-verdict-neutral-border: rgba(245, 158, 11, 0.25);
+  --color-verdict-neutral-text: #FBBF24;
+  --color-verdict-neutral-highlight: rgba(251, 191, 36, 0.15);
+
+  --border-color: rgba(255, 255, 255, 0.05);
+  --border-color-hover: rgba(255, 255, 255, 0.1);
+  --grid-color-3d: rgba(255, 255, 255, 0.02);
+  --grid-color-flat: rgba(255, 255, 255, 0.015);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --card-shadow-hover: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
 @layer base {
   body {
     @apply bg-paper text-ink font-sans antialiased selection:bg-blue-500/25 selection:text-blue-100;
@@ -16,8 +76,8 @@
 .scientific-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-color-flat) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color-flat) 1px, transparent 1px);
 }
 
 /* 3D grid container with perspective depth */
@@ -32,8 +92,8 @@
 
 .scientific-grid-3d {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-color-3d) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color-3d) 1px, transparent 1px);
   background-size: 48px 48px;
   background-position: center;
   position: absolute;
@@ -47,13 +107,17 @@
 
 /* Glassmorphic instruments cards */
 .instrument-card {
-  @apply bg-console/60 border border-white/5 shadow-xl backdrop-blur-md rounded-xl transition-all duration-300;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background-color: rgb(var(--color-console-rgb) / 0.65);
+  border-color: var(--border-color);
+  @apply border shadow-xl backdrop-blur-md rounded-xl transition-all duration-300;
+  box-shadow: var(--card-shadow);
 }
 
 .instrument-card-hover:hover {
-  @apply border-white/10 bg-console/80 -translate-y-0.5;
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.05);
+  background-color: rgb(var(--color-console-rgb) / 0.85);
+  border-color: var(--border-color-hover);
+  @apply -translate-y-0.5;
+  box-shadow: var(--card-shadow-hover);
 }
 
 /* Monospace telemetry glow */
