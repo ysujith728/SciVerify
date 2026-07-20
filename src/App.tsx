@@ -307,19 +307,19 @@ function App() {
       )}
 
       {/* Grid Pattern overlay lines */}
-      <div className="grid-perspective-container opacity-40">
+      <div className="grid-perspective-container opacity-25">
         <div className="scientific-grid-3d opacity-100 scientific-grid-animate" />
       </div>
  
       {/* Full-screen boot overlay sequence */}
       {isBooting && (
         <div 
-          className={`fixed inset-0 bg-[#030712]/90 flex flex-col items-center justify-center z-50 select-none overflow-hidden transition-all duration-600 ${
+          className={`fixed inset-0 bg-paper dark:bg-[#030712]/95 flex flex-col items-center justify-center z-50 select-none overflow-hidden transition-all duration-600 ${
             bootPhase === 'BOOT_MORPH' ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
           {/* Faint 3D grid layout inside the boot overlay */}
-          <div className="grid-perspective-container opacity-60">
+          <div className="grid-perspective-container opacity-45">
             <div className="scientific-grid-3d opacity-100" />
           </div>
  
@@ -402,7 +402,7 @@ function App() {
         variants={itemVariants}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p>© {new Date().getFullYear()} SCIVERIFY CORE INFERENCE LAB • CS 23CSE471 PROJECT</p>
+          <p>© {new Date().getFullYear()} SCIVERIFY CORE INFERENCE LAB</p>
           <div className="flex justify-center gap-6">
             <a href="#" className="hover:text-slate-300 transition-colors">PRIVACY_CODE</a>
             <a href="#" className="hover:text-slate-300 transition-colors">CORPUS_AGREEMENT</a>

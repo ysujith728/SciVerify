@@ -79,78 +79,142 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
     </svg>
   );
 
-  // Custom render methods for the 6 scientific elements
+  // Custom render methods for the 6 scientific elements (Redesigned 2x-2.5x larger, minimal vector style)
   const renderDocumentNode = (opacity: number) => (
-    <g opacity={opacity}>
+    <motion.g 
+      opacity={opacity}
+      animate={{ y: [0, -3, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {/* Document page body */}
       <path
-        d="M -5,-7 L 1,-7 L 5,-3 L 5,7 L -5,7 Z"
+        d="M -8,-11 L 3,-11 L 9,-5 L 9,11 C 9,12 8,13 7,13 L -7,13 C -8,13 -9,12 -9,11 L -9,-9 C -9,-10 -8,-11 -7,-11 Z"
         stroke="currentColor"
-        strokeOpacity="0.85"
-        strokeWidth="1.2"
-        fill="rgba(15, 23, 42, 0.9)"
+        strokeOpacity="0.9"
+        strokeWidth="1.8"
+        fill="rgba(15, 23, 42, 0.95)"
         strokeLinejoin="round"
       />
-      <path d="M 1,-7 L 1,-3 L 5,-3" stroke="currentColor" strokeOpacity="0.85" strokeWidth="1.2" fill="none" />
-      <line x1="-2.5" y1="-1" x2="2.5" y2="-1" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1" />
-      <line x1="-2.5" y1="2" x2="2.5" y2="2" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1" />
-    </g>
+      {/* Page fold */}
+      <path d="M 3,-11 L 3,-5 L 9,-5" stroke="currentColor" strokeOpacity="0.9" strokeWidth="1.8" fill="none" strokeLinejoin="round" />
+      {/* Simulated lines */}
+      <line x1="-5" y1="-1" x2="5" y2="-1" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      <line x1="-5" y1="3" x2="5" y2="3" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      <line x1="-5" y1="7" x2="1" y2="7" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+    </motion.g>
   );
 
   const renderMoleculeNode = (opacity: number) => (
-    <g opacity={opacity}>
-      <line x1="0" y1="0" x2="-4" y2="-4" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="1" />
-      <line x1="0" y1="0" x2="4" y2="2" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="1" />
-      <circle cx="0" cy="0" r="2.5" fill="#3B82F6" />
-      <circle cx="-4" cy="-4" r="1.5" fill="#10B981" />
-      <circle cx="4" cy="2" r="1.5" fill="#10B981" />
-    </g>
+    <motion.g 
+      opacity={opacity}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+    >
+      {/* Connection bonds */}
+      <line x1="0" y1="0" x2="-8" y2="-8" stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.8" />
+      <line x1="0" y1="0" x2="9" y2="-3" stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.8" />
+      <line x1="0" y1="0" x2="-1" y2="9" stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.8" />
+      {/* Central atom */}
+      <circle cx="0" cy="0" r="4" fill="#3B82F6" stroke="currentColor" strokeOpacity="0.8" strokeWidth="1" />
+      {/* Orbiting atoms */}
+      <circle cx="-8" cy="-8" r="2.5" fill="#10B981" />
+      <circle cx="9" cy="-3" r="2" fill="#3B82F6" />
+      <circle cx="-1" cy="9" r="2.8" fill="#10B981" />
+    </motion.g>
   );
 
   const renderVectorNode = (opacity: number) => (
-    <g opacity={opacity}>
-      <circle cx="0" cy="0" r="2.5" stroke="currentColor" strokeOpacity="0.7" strokeWidth="1.2" fill="none" />
-      <line x1="-5" y1="0" x2="5" y2="0" stroke="currentColor" strokeOpacity="0.5" strokeWidth="0.8" />
-      <line x1="0" y1="-5" x2="0" y2="5" stroke="currentColor" strokeOpacity="0.5" strokeWidth="0.8" />
-    </g>
+    <motion.g 
+      opacity={opacity}
+      animate={{ scale: [1, 1.08, 1] }}
+      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {/* Crosshair grid lines */}
+      <line x1="-12" y1="0" x2="-5" y2="0" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      <line x1="5" y1="0" x2="12" y2="0" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      <line x1="0" y1="-12" x2="0" y2="-5" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      <line x1="0" y1="5" x2="0" y2="12" stroke="currentColor" strokeOpacity="0.4" strokeWidth="1.5" />
+      {/* Target scope rings */}
+      <circle cx="0" cy="0" r="7" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1.6" fill="none" />
+      <circle cx="0" cy="0" r="2" fill="currentColor" />
+    </motion.g>
   );
 
   const renderCitationNode = (opacity: number) => (
-    <g opacity={opacity}>
-      <circle cx="0" cy="0" r="1.8" fill="#FBBF24" />
-      <path d="M -4,-3 L -5.5,-3 L -5.5,3 L -4,3" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1" fill="none" />
-      <path d="M 4,-3 L 5.5,-3 L 5.5,3 L 4,3" stroke="currentColor" strokeOpacity="0.6" strokeWidth="1" fill="none" />
-    </g>
+    <motion.g 
+      opacity={opacity}
+      animate={{ scale: [1, 1.06, 1] }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {/* Brackets representing citation indexing */}
+      <path d="M -7,-9 L -11,-9 L -11,9 L -7,9" stroke="currentColor" strokeOpacity="0.85" strokeWidth="1.8" fill="none" />
+      <path d="M 7,-9 L 11,-9 L 11,9 L 7,9" stroke="currentColor" strokeOpacity="0.85" strokeWidth="1.8" fill="none" />
+      {/* Citation page/badge inside brackets */}
+      <path
+        d="M -3,-6 L 1,-6 L 4,-3 L 4,6 L -3,6 Z"
+        stroke="#FBBF24"
+        strokeWidth="1.5"
+        fill="rgba(15, 23, 42, 0.95)"
+        strokeLinejoin="round"
+      />
+      <circle cx="0.5" cy="1.5" r="1.5" fill="#FBBF24" />
+    </motion.g>
   );
 
   const renderConnectionNode = (opacity: number) => (
-    <g opacity={opacity}>
-      <line x1="-3" y1="2" x2="3" y2="3" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
-      <line x1="3" y1="3" x2="0" y2="-4" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
-      <line x1="0" y1="-4" x2="-3" y2="2" stroke="currentColor" strokeOpacity="0.4" strokeWidth="0.8" />
-      <circle cx="-3" cy="2" r="1.5" fill="currentColor" />
-      <circle cx="3" cy="3" r="1.5" fill="currentColor" />
-      <circle cx="0" cy="-4" r="1.5" fill="currentColor" />
-    </g>
+    <motion.g 
+      opacity={opacity}
+      animate={{ opacity: [0.85, 1, 0.85] }}
+      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {/* Graph vertices (connection lines) */}
+      <line x1="-8" y1="5" x2="8" y2="5" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.8" />
+      <line x1="8" y1="5" x2="0" y2="-9" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.8" />
+      <line x1="0" y1="-9" x2="-8" y2="5" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.8" />
+      {/* Vertices/Nodes */}
+      <circle cx="-8" cy="5" r="3.2" fill="currentColor" stroke="currentColor" strokeOpacity="0.2" strokeWidth="2" />
+      <circle cx="8" cy="5" r="3.2" fill="currentColor" stroke="currentColor" strokeOpacity="0.2" strokeWidth="2" />
+      <motion.circle 
+        cx="0" 
+        cy="-9" 
+        r="3.2" 
+        fill="#3B82F6" 
+        animate={{ scale: [1, 1.15, 1] }} 
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} 
+      />
+    </motion.g>
   );
 
   const renderCheckNode = (opacity: number) => (
-    <g opacity={opacity}>
-      <circle cx="0" cy="0" r="4.5" stroke="#10B981" strokeWidth="1.2" fill="rgba(16, 185, 129, 0.1)" />
+    <motion.g 
+      opacity={opacity}
+      animate={{ scale: [1, 1.05, 1] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {/* Hexagonal certification badge */}
       <path
-        d="M -2,0 L -0.5,1.5 L 2,-1"
+        d="M 0,-11 L 9.5,-5.5 L 9.5,5.5 L 0,11 L -9.5,5.5 L -9.5,-5.5 Z"
         stroke="#10B981"
-        strokeWidth="1.2"
+        strokeWidth="1.8"
+        fill="rgba(16, 185, 129, 0.08)"
+        strokeLinejoin="round"
+      />
+      {/* Double verify checkmark lines */}
+      <path
+        d="M -5,0 L -1.5,3.5 L 5,-3"
+        stroke="#10B981"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
-    </g>
+    </motion.g>
   );
 
   // Compute node parameters (X, Y projection tilted by 10 degrees, with depth scaling and opacity)
   const computeNodes = () => {
     const rx = 190;
-    const ry = 45;
+    const ry = 65;
     const tilt = 10 * (Math.PI / 180); // 10 degrees in radians
     const cosPhi = Math.cos(tilt);
     const sinPhi = Math.sin(tilt);
@@ -176,8 +240,8 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
 
       // Z depth index: -1 is back, 1 is front
       const z = Math.sin(nodeAngle);
-      const scale = 0.85 + 0.2 * z;
-      const opacity = 0.4 + 0.6 * ((z + 1) / 2); // fades slightly in the back
+      const scale = 0.95 + 0.35 * z;
+      const opacity = 0.2 + 0.8 * ((z + 1) / 2); // stronger fades in the back
       const isFront = z >= 0;
 
       return {
@@ -223,7 +287,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
     >
       {/* Subtle Breathing Scale wrapper (always active) */}
       <motion.div
-        className="relative flex flex-col items-center justify-center w-[480px] h-[480px]"
+        className="relative flex flex-col items-center justify-center w-[85vw] h-[85vw] max-w-[600px] max-h-[600px] md:max-w-[650px] md:max-h-[650px] aspect-square"
         animate={{ scale: [1, 1.015, 1] }}
         transition={{
           repeat: Infinity,
@@ -241,7 +305,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
             cx="200"
             cy="200"
             rx="190"
-            ry="45"
+            ry="65"
             transform="rotate(10, 200, 200)"
             stroke="currentColor"
             strokeOpacity="0.08"
@@ -272,8 +336,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           {/* Dual Verification Pulses at 1200ms and 2400ms */}
           <motion.div
-            className="absolute rounded-full border border-emerald-500/25 bg-emerald-500/5 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
-            style={{ width: 220, height: 220 }}
+            className="absolute rounded-full border border-emerald-500/25 bg-emerald-500/5 shadow-[0_0_20px_rgba(16,185,129,0.15)] w-[58%] h-[58%]"
             initial={{ scale: 0.65, opacity: 0 }}
             animate={{
               scale: [0.65, 1.55],
@@ -287,8 +350,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
           />
 
           <motion.div
-            className="absolute rounded-full border border-blue-500/35 bg-blue-500/5"
-            style={{ width: 150, height: 150 }}
+            className="absolute rounded-full border border-blue-500/35 bg-blue-500/5 w-[38%] h-[38%]"
             initial={{ scale: 0.75, opacity: 0 }}
             animate={{
               scale: [0.75, 1.4],
@@ -304,7 +366,7 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
           {/* Wordmark (Fades in at 100ms) */}
           <motion.span
             layoutId={`${layoutId}-wordmark`}
-            className="font-bold text-ink font-sans text-5xl md:text-6xl tracking-tight z-10"
+            className="font-bold text-ink font-sans text-7xl md:text-8xl tracking-tight z-10"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}
@@ -314,12 +376,22 @@ export const SciVerifyHeroLogo: React.FC<SciVerifyHeroLogoProps> = ({
 
           {/* Subtitle (Fades in at 400ms) */}
           <motion.span
-            className="text-[10px] md:text-[11px] font-medium tracking-[0.25em] text-slate-400 mt-3 uppercase z-10 select-none text-center"
+            className="text-xs md:text-sm font-medium tracking-[0.25em] text-slate-400 mt-6 uppercase z-10 select-none text-center"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
           >
             Scientific Claim Verification
+          </motion.span>
+
+          {/* Tagline (Fades in at 500ms) */}
+          <motion.span
+            className="text-[9px] md:text-[10px] font-mono tracking-[0.35em] text-slate-500 dark:text-slate-400 mt-2.5 uppercase z-10 select-none text-center opacity-85"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+          >
+            Verify Smarter. Trust Science.
           </motion.span>
         </div>
 

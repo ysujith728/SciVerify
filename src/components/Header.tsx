@@ -1,5 +1,5 @@
 import React from 'react';
-import { History, BookOpen, Sun, Moon } from 'lucide-react';
+import { History, Sun, Moon } from 'lucide-react';
 import { SciVerifyHeroLogo } from './SciVerifyHeroLogo';
 
 interface HeaderProps {
@@ -14,40 +14,21 @@ export const Header: React.FC<HeaderProps> = ({ onToggleHistory, historyCount, t
   const isDarkMode = theme === 'dark';
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-white/5 bg-paper/80 backdrop-blur-md transition-colors duration-300">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-paper/80 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex max-w-7xl h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         
-        {/* Logo and Brand: Sharp & Clinical Monogram */}
+        {/* Logo and Brand: Left side contains ONLY [Logo] SciVerify */}
         <button 
           onClick={onLogoClick}
-          className="flex items-center gap-3 text-left focus:outline-none cursor-pointer group select-none"
+          className="flex items-center gap-3 p-0 m-0 border-0 bg-transparent text-left focus:outline-none cursor-pointer group select-none"
         >
           <div className="flex items-center text-cobalt select-none transition-transform group-hover:scale-[1.02]">
             <SciVerifyHeroLogo variant="navbar" layoutId="main-logo-container" className="text-cobalt" />
           </div>
-          <div className="border-l border-slate-200 dark:border-white/10 pl-3">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-300 tracking-wider group-hover:border-cobalt/35 transition-colors">
-                SYS_VER_2.4
-              </span>
-            </div>
-            <p className="hidden sm:block text-[9px] text-slate-500 font-mono uppercase tracking-widest group-hover:text-slate-400 dark:group-hover:text-slate-300 transition-colors">Verify Smarter. Trust Science.</p>
-          </div>
         </button>
 
-        {/* Action Controls: Boxy & Minimal */}
+        {/* Action Controls: Right side contains only useful controls (Theme Toggle and History) */}
         <div className="flex items-center gap-4 sm:gap-6">
-          <a
-            href="https://github.com/akb/scifact"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-ink transition-colors"
-          >
-            <BookOpen className="h-3.5 w-3.5 text-cobalt" />
-            SciFact.Corpus
-          </a>
-
-
           {/* Theme Toggle Button */}
           <button
             onClick={onToggleTheme}
