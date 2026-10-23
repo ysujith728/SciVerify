@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { History, Sun, Moon, Bell } from 'lucide-react';
+import { History, Sun, Moon, Bell, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SciVerifyHeroLogo } from './SciVerifyHeroLogo';
 
@@ -102,6 +102,16 @@ export const Header: React.FC<HeaderProps> = ({
                 <Bell className="h-4 w-4" />
               </button>
 
+              {/* Direct Sign Out Button (Always Available) */}
+              <button
+                onClick={onLogout}
+                className="flex items-center gap-1.5 border border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 px-2.5 py-1 text-xs font-mono uppercase tracking-wider font-bold transition-all cursor-pointer rounded-none active:translate-y-0.5"
+                title="Sign out of SciVerify"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Sign Out</span>
+              </button>
+
               {/* User Profile Avatar with dropdown */}
               <div className="relative">
                 <button
@@ -116,14 +126,14 @@ export const Header: React.FC<HeaderProps> = ({
                   {isDropdownOpen && (
                     <>
                       {/* Overlay backdrop click catcher */}
-                      <div className="fixed inset-0 z-30" onClick={() => setIsDropdownOpen(false)} />
+                      <div className="fixed inset-0 z-40" onClick={() => setIsDropdownOpen(false)} />
                       
                       {/* Dropdown Panel */}
                       <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute right-0 mt-2 w-52 instrument-card p-4 bg-paper border border-slate-200 dark:border-white/10 z-40 shadow-xl flex flex-col gap-2.5 font-mono text-[9px] select-none"
+                        className="absolute right-0 mt-2 w-52 instrument-card p-4 bg-paper border border-slate-200 dark:border-white/10 z-50 shadow-xl flex flex-col gap-2.5 font-mono text-[9px] select-none"
                       >
                         {/* User Credentials details */}
                         <div className="border-b border-slate-200 dark:border-white/10 pb-2.5">
@@ -161,9 +171,10 @@ export const Header: React.FC<HeaderProps> = ({
                             setIsDropdownOpen(false);
                             onLogout();
                           }}
-                          className="w-full text-left py-1 hover:text-red-500 text-slate-700 dark:text-ink cursor-pointer focus:outline-none uppercase tracking-wider font-bold transition-colors"
+                          className="w-full text-left py-1 hover:text-red-500 text-red-500 dark:text-red-400 cursor-pointer focus:outline-none uppercase tracking-wider font-bold transition-colors flex items-center justify-between"
                         >
-                          Sign Out
+                          <span>Sign Out</span>
+                          <LogOut className="h-3 w-3" />
                         </button>
                       </motion.div>
                     </>
